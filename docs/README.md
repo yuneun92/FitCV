@@ -9,4 +9,5 @@
 - 생성 로직/프롬프트 템플릿: `generation.md`
 - 매칭/평가/리뷰: `matching_review.md`
 - 제품/아키텍처/파이프라인: `product.md`
-- 로드맵 & 이슈: `roadmap.md` 
+- 로드맵 & 이슈: `roadmap.md`
+- CI 통과 가이드: `ci.md` 

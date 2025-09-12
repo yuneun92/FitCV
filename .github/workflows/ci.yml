@@ -24,13 +24,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install uv
 
-      - name: Install dev tools (ruff, pytest)
+      - name: Install dev tools (ruff, black, pytest)
         run: |
-          uv pip install -U ruff pytest
+          uv pip install -U ruff black pytest
 
       - name: Lint (ruff)
         run: |
           uv run ruff check .
+
+      - name: Format check (black)
+        run: |
+          uv run black --check --diff .
 
       - name: Test (pytest)
         run: |

@@ -1,0 +1,20 @@
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: black (uv)
+        entry: uv run black
+        language: system
+        types_or: [python]
+      - id: ruff
+        name: ruff --fix (uv)
+        entry: uv run ruff
+        language: system
+        types_or: [python]
+        args: ["--fix"]
+      - id: pytest
+        name: pytest (uv) - pre-push
+        entry: uv run pytest -q FitCV/tests
+        language: system
+        pass_filenames: false
+        stages: [push] 
