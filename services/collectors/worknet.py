@@ -1,5 +1,3 @@
-# (init) 0913 윤은 
-# 개발 목적: 워크넷 공고 스크랩 API 개발
 from __future__ import annotations
 
 from typing import Any, Dict, List

@@ -4,13 +4,13 @@ from typing import Iterable, List, Tuple
 
 from celery import group
 
-from FitCV.services.jobs import scrape_greenhouse_once
-from FitCV.libs.cache.redis import try_acquire_idempotency, add_recent_task
+from services.jobs import scrape_greenhouse_once
+from libs.cache.redis import try_acquire_idempotency, add_recent_task
 from .celery_app import app
 
 
 @app.task(
-    name="FitCV.apps.worker.tasks.scrape_greenhouse_task",
+    name="apps.worker.tasks.scrape_greenhouse_task",
     bind=True,
     autoretry_for=(Exception,),
     retry_backoff=True,
@@ -32,7 +32,7 @@ def scrape_greenhouse_task(
 
 
 @app.task(
-    name="FitCV.apps.worker.tasks.scrape_greenhouse_single_task",
+    name="apps.worker.tasks.scrape_greenhouse_single_task",
     bind=True,
     autoretry_for=(Exception,),
     retry_backoff=True,
@@ -52,7 +52,7 @@ def scrape_greenhouse_single_task(
 
 
 @app.task(
-    name="FitCV.apps.worker.tasks.dispatch_greenhouse_scrape",
+    name="apps.worker.tasks.dispatch_greenhouse_scrape",
 )
 def dispatch_greenhouse_scrape(
     company_slugs: Iterable[str],

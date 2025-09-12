@@ -25,7 +25,7 @@ app = Celery(
     "fitcv",
     broker=BROKER_URL,
     backend=RESULT_BACKEND,
-    include=["FitCV.apps.worker.tasks"],
+    include=["apps.worker.tasks"],
 )
 
 # Base configuration
@@ -50,9 +50,9 @@ app.conf.task_queues = {
     },
 }
 app.conf.task_routes = {
-    "FitCV.apps.worker.tasks.scrape_greenhouse_task": {"queue": "greenhouse"},
-    "FitCV.apps.worker.tasks.scrape_greenhouse_single_task": {"queue": "greenhouse"},
-    "FitCV.apps.worker.tasks.dispatch_greenhouse_scrape": {"queue": "greenhouse"},
+    "apps.worker.tasks.scrape_greenhouse_task": {"queue": "greenhouse"},
+    "apps.worker.tasks.scrape_greenhouse_single_task": {"queue": "greenhouse"},
+    "apps.worker.tasks.dispatch_greenhouse_scrape": {"queue": "greenhouse"},
 }
 
 # Optional: Celery Beat schedule configured from env (using dispatch for fan-out)
@@ -68,7 +68,7 @@ ENABLE_CELERY_BEAT = os.getenv("ENABLE_CELERY_BEAT", "true").lower() in {"1", "t
 if ENABLE_CELERY_BEAT and SCRAPE_INTERVAL_SECONDS > 0 and GREENHOUSE_SLUGS:
     app.conf.beat_schedule = {
         "scrape-greenhouse-periodic": {
-            "task": "FitCV.apps.worker.tasks.dispatch_greenhouse_scrape",
+            "task": "apps.worker.tasks.dispatch_greenhouse_scrape",
             "schedule": SCRAPE_INTERVAL_SECONDS,
             "args": [GREENHOUSE_SLUGS, DATA_DIR, DEFAULT_TIMEOUT_SECONDS],
         }

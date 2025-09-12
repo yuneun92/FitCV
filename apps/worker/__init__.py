@@ -1,1 +1,1 @@
-"""Celery worker package for FitCV.""" 
+"""Celery worker package for """ 

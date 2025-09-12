@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterable, List, Tuple
 
-from FitCV.services.collectors.greenhouse import GreenhouseCollector
+from services.collectors.greenhouse import GreenhouseCollector
 
 
 def _ensure_dir(path: str | Path) -> None:

@@ -14,7 +14,7 @@ repos:
         args: ["--fix"]
       - id: pytest
         name: pytest (uv) - pre-push
-        entry: uv run pytest -q FitCV/tests
+        entry: uv run pytest -q /tests
         language: system
         pass_filenames: false
         stages: [push] 

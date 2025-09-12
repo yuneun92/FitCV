@@ -1,5 +1,5 @@
 import httpx
-from FitCV.services.collectors import (
+from services.collectors import (
     GreenhouseCollector,
     LeverCollector,
     SaraminCollector,

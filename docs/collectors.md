@@ -12,7 +12,7 @@
 
 ### 사용 예시(초안)
 ```python
-from FitCV.services.collectors.greenhouse import GreenhouseCollector
+from services.collectors.greenhouse import GreenhouseCollector
 
 collector = GreenhouseCollector(company_slug="exampleco")
 raw_jobs = collector.collect()

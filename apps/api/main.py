@@ -3,9 +3,9 @@ import os
 from typing import List
 
 from celery.result import AsyncResult
-from FitCV.apps.worker.tasks import scrape_greenhouse_task, dispatch_greenhouse_scrape
-from FitCV.apps.worker.celery_app import app as celery_app
-from FitCV.libs.cache.redis import get_recent_tasks
+from apps.worker.tasks import scrape_greenhouse_task, dispatch_greenhouse_scrape
+from apps.worker.celery_app import app as celery_app
+from libs.cache.redis import get_recent_tasks
 
 app = FastAPI()
 

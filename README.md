@@ -20,7 +20,7 @@
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/yourname/FitCV.git
+git clone https://github.com/yourname/git
 cd FitCV
 ```
 
@@ -46,7 +46,7 @@ docker compose up -d
 ## 🗂 Repo Structure
 
 ```
-FitCV/
+
 ├─ apps/            # api, web, worker (서비스 앱)
 ├─ services/        # collectors, normalizer, matcher, generator...
 ├─ libs/            # schemas, prompts, nlp, utils
