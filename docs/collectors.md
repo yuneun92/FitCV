@@ -17,3 +17,13 @@ from FitCV.services.collectors.greenhouse import GreenhouseCollector
 collector = GreenhouseCollector(company_slug="exampleco")
 raw_jobs = collector.collect()
 ```
+
+# 수집기 설계
+
+- Greenhouse: 공개 API 기반 수집기
+- Saramin / WorkNet: 공개/제휴 API, 키 필요
+
+## 실행
+
+- API 트리거: `POST /tasks/scrape/greenhouse/trigger`
+- 주기 실행: Celery Beat (`SCRAPE_INTERVAL_SECONDS`, `GREENHOUSE_SLUGS`)

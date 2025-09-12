@@ -28,3 +28,9 @@
 ### 트러블슈팅
 - Python 버전 오류: 3.12 가상환경에서 uv 명령 실행
 - 경로 문제: pytest는 `FitCV/tests` 기준. 다른 경로의 테스트는 `pyproject.toml`의 `testpaths` 수정 
+
+# CI/CD 가이드
+
+- 테스트 실행: `uv run pytest`
+- Lint: `uv run ruff check . && uv run black --check .`
+- 백그라운드 작업: Celery/Redis는 통합 테스트에서 모킹하거나 로컬 서비스로 기동합니다. 
