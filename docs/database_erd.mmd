@@ -1,0 +1,28 @@
+erDiagram
+    USERS ||--o| USER_PROFILES : has
+    USERS ||--o{ USER_SKILLS : has
+    USERS ||--o{ USER_EXPERIENCES : has
+    USERS ||--o{ USER_EDUCATIONS : has
+    USERS ||--o{ USER_PROJECTS : has
+
+    COMPANIES ||--o{ JOB_POSTINGS : has
+    JOB_POSTINGS ||--o{ JOB_SKILLS : requires
+    JOB_POSTINGS ||--o{ JOB_TAGS : has
+
+    USERS ||--o{ GENERATED_DOCUMENTS : creates
+    JOB_POSTINGS ||--o{ GENERATED_DOCUMENTS : for
+    PROMPT_TEMPLATES ||--o{ GENERATED_DOCUMENTS : uses
+    GENERATED_DOCUMENTS ||--o{ DOCUMENT_VERSIONS : versions
+ß
+    USERS ||--o{ USER_FEEDBACK : leaves
+    GENERATED_DOCUMENTS ||--o{ USER_FEEDBACK : about
+    JOB_POSTINGS ||--o{ USER_FEEDBACK : about
+
+    GENERATED_DOCUMENTS ||--o{ DOCUMENT_REVIEWS : gets
+
+    USERS ||--o{ USER_JOB_MATCHES : matches
+    JOB_POSTINGS ||--o{ USER_JOB_MATCHES : matched
+
+    COMPANIES ||--o{ COMPANY_CORE_PERSONAS : defines
+    COMPANIES ||--o{ COMPANY_SUCCESS_STORIES : collects
+    JOB_POSTINGS ||--o{ COMPANY_SUCCESS_STORIES : relates 
